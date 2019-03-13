@@ -368,7 +368,7 @@ GameObject:
   - component: {fileID: 888670589}
   - component: {fileID: 888670588}
   - component: {fileID: 888670587}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,6 +496,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  kiwiMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!135 &1376913964
 SphereCollider:
   m_ObjectHideFlags: 0
