@@ -14,7 +14,9 @@ public class PControllerPH : MonoBehaviour
     Camera cam;
 
     public LayerMask kiwiMask;
-    public GameObject Menu;
+    //public GameObject Menu;
+
+    public GameObject pausePanel;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,8 @@ public class PControllerPH : MonoBehaviour
 
         count = 0;
         SetCountText();
+
+        pausePanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -59,14 +63,9 @@ public class PControllerPH : MonoBehaviour
                 }
             }
         }
-
-        if (Input.GetKeyDown("escape"))
-        {
-            Menu.SetActive(!Menu.activeInHierarchy);
-        }
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
@@ -74,11 +73,39 @@ public class PControllerPH : MonoBehaviour
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
         rb.AddForce(movement * speed);
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            //Menu.SetActive(!Menu.activeInHierarchy);
+            if (!pausePanel.activeInHierarchy)
+            {
+                PauseGame();
+            }
+            else
+            {
+                if (pausePanel.activeInHierarchy)
+                {
+                    ContinueGame();
+                }
+            }
+        }
     }
 
     void SetCountText()
     {
         countText.text = "Count: " + count.ToString();
 
+    }
+
+    private void PauseGame()
+    {
+        Time.timeScale = 0;
+        pausePanel.SetActive(true);
+    }
+
+    private void ContinueGame()
+    {
+        Time.timeScale = 1;
+        pausePanel.SetActive(false);
     }
 }
