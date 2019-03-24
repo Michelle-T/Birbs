@@ -11,6 +11,11 @@ public class PControllerPH : MonoBehaviour
     public Text countText;
     private int count;
 
+    public float radius;
+    public float depth;
+    public float angle;
+    private Physics physics;
+
     Camera cam;
 
     //public LayerMask kiwiMask;
@@ -64,6 +69,16 @@ public class PControllerPH : MonoBehaviour
                     count = count + 20;
                     SetCountText();
                 }
+            }
+        }
+
+        RaycastHit[] coneHits = physics.ConeCastAll(transform.position, radius, transform.forward, depth, angle);
+
+        if (coneHits.Length > 0)
+        {
+            for (int i = 0; i < coneHits.Length; i++)
+            {
+                coneHits[i].collider.gameObject.GetComponent<Renderer>().material.color = new Color(0, 0, 1f);
             }
         }
 
