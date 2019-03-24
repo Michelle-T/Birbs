@@ -13,10 +13,13 @@ public class PControllerPH : MonoBehaviour
 
     Camera cam;
 
-    public LayerMask kiwiMask;
+    //public LayerMask kiwiMask;
     //public GameObject Menu;
 
     public GameObject pausePanel;
+    bool pause = false;
+
+    bool scoring = true;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +45,7 @@ public class PControllerPH : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 100))
             {
                 Debug.Log("We hit " + hit.collider.name + " " + hit.point);
-                
+
                 if (hit.collider.gameObject.tag == "Kiwi")
                 {
                     Debug.Log("Kiwi!");
@@ -63,6 +66,24 @@ public class PControllerPH : MonoBehaviour
                 }
             }
         }
+
+        if (Input.GetKeyDown("escape"))
+        {
+            if (pause == true)
+            {
+                Time.timeScale = 0.0f;
+                pausePanel.SetActive(true);
+                scoring = false;
+                pause = false;
+            }
+            else
+            {
+                Time.timeScale = 1.0f;
+                pausePanel.SetActive(false);
+                scoring = true;
+                pause = true;
+            }
+        }
     }
 
     void FixedUpdate()
@@ -73,39 +94,17 @@ public class PControllerPH : MonoBehaviour
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
         rb.AddForce(movement * speed);
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            //Menu.SetActive(!Menu.activeInHierarchy);
-            if (!pausePanel.activeInHierarchy)
-            {
-                PauseGame();
-            }
-            else
-            {
-                if (pausePanel.activeInHierarchy)
-                {
-                    ContinueGame();
-                }
-            }
-        }
     }
 
     void SetCountText()
     {
-        countText.text = "Count: " + count.ToString();
+        if (scoring == true)
+        {
+            countText.text = "Count: " + count.ToString();
+        }
+        else
+        {
 
-    }
-
-    private void PauseGame()
-    {
-        Time.timeScale = 0;
-        pausePanel.SetActive(true);
-    }
-
-    private void ContinueGame()
-    {
-        Time.timeScale = 1;
-        pausePanel.SetActive(false);
+        }
     }
 }
