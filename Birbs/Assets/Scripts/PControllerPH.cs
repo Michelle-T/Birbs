@@ -14,7 +14,7 @@ public class PControllerPH : MonoBehaviour
     public float radius;
     public float depth;
     public float angle;
-    private Physics physics;
+    //private Physics physics;
 
     Camera cam;
 
@@ -34,7 +34,7 @@ public class PControllerPH : MonoBehaviour
         cam = Camera.main;
 
         count = 0;
-        SetCountText();
+        //SetCountText();
 
         pausePanel.SetActive(false);
     }
@@ -42,7 +42,7 @@ public class PControllerPH : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        /*if (Input.GetMouseButtonDown(1))
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -70,9 +70,9 @@ public class PControllerPH : MonoBehaviour
                     SetCountText();
                 }
             }
-        }
+        }/*
 
-        RaycastHit[] coneHits = physics.ConeCastAll(transform.position, radius, transform.forward, depth, angle);
+        /*RaycastHit[] coneHits = physics.ConeCastAll(transform.position, radius, transform.forward, depth, angle);
 
         if (coneHits.Length > 0)
         {
@@ -80,7 +80,7 @@ public class PControllerPH : MonoBehaviour
             {
                 coneHits[i].collider.gameObject.GetComponent<Renderer>().material.color = new Color(0, 0, 1f);
             }
-        }
+        }*/
 
         if (Input.GetKeyDown("escape"))
         {
