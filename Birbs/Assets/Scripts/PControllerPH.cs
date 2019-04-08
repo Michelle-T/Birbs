@@ -26,6 +26,9 @@ public class PControllerPH : MonoBehaviour
 
     bool scoring = true;
 
+    public GameObject WinScreen;
+    public GameObject LoseScreen;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +45,7 @@ public class PControllerPH : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1))
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -70,7 +73,7 @@ public class PControllerPH : MonoBehaviour
                     SetCountText();
                 }
             }
-        }/*
+        }
 
         /*RaycastHit[] coneHits = physics.ConeCastAll(transform.position, radius, transform.forward, depth, angle);
 
@@ -116,6 +119,11 @@ public class PControllerPH : MonoBehaviour
         if (scoring == true)
         {
             countText.text = "Count: " + count.ToString();
+
+            if (count >= 100)
+            {
+                WinScreen.SetActive(true);
+            }
         }
         else
         {
