@@ -6,7 +6,8 @@ public class PressEToRead : MonoBehaviour
 {
     public GameObject Player;
     public float minDist = 5;
-    public string text = "Hello";
+    public string text = "Hello" +
+        "\nHit E again!";
     float dist;
     bool reading = false;
 
@@ -45,7 +46,7 @@ public class PressEToRead : MonoBehaviour
     {
         if(reading)
         {
-            GUI.TextArea(new Rect(Screen.height / 2, Screen.width / 2, 500, 500), text);
+            GUI.TextArea(new Rect(Screen.height / 2, Screen.width / 2, 500, 500), "Welcome! \nHit E again!");
         }
         else if(dist <= minDist)
         {
