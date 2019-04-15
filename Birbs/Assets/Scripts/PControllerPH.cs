@@ -50,7 +50,7 @@ public class PControllerPH : MonoBehaviour
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, 100))
+            if (Physics.Raycast(ray, out hit, 100) && scoring==true)
             {
                 Debug.Log("We hit " + hit.collider.name + " " + hit.point);
 
