@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HighScoreTable : MonoBehaviour
 {
     public Transform entryContainer;
     public Transform entryTemplate;
+    public List<Transform> entryTransformList;
 
     private void Awake()
     {
@@ -24,6 +26,8 @@ public class HighScoreTable : MonoBehaviour
             entryTransform.gameObject.SetActive(true);
         }
     }
+
+    if (highscores.highscoreEntryList[a].score > highscores.)
 
     // Start is called before the first frame update
     void Start()
