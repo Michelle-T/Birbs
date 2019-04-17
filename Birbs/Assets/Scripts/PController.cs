@@ -41,7 +41,7 @@ public class PControllerPH : MonoBehaviour
 
         pausePanel.SetActive(false);
     }
-
+    /*
     // Update is called once per frame
     void Update()
     {
@@ -74,7 +74,7 @@ public class PControllerPH : MonoBehaviour
                 }
             }
         }
-
+        
         /*RaycastHit[] coneHits = physics.ConeCastAll(transform.position, radius, transform.forward, depth, angle);
 
         if (coneHits.Length > 0)
@@ -83,7 +83,7 @@ public class PControllerPH : MonoBehaviour
             {
                 coneHits[i].collider.gameObject.GetComponent<Renderer>().material.color = new Color(0, 0, 1f);
             }
-        }*/
+        }
 
         if (Input.GetKeyDown("escape"))
         {
@@ -102,7 +102,7 @@ public class PControllerPH : MonoBehaviour
                 pause = true;
             }
         }
-    }
+    }*/
 
     void FixedUpdate()
     {
@@ -113,7 +113,7 @@ public class PControllerPH : MonoBehaviour
 
         rb.AddForce(movement * speed);
     }
-
+    /*
     void SetCountText()
     {
         if (scoring == true)
@@ -129,5 +129,5 @@ public class PControllerPH : MonoBehaviour
         {
 
         }
-    }
+    }*/
 }

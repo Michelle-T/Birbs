@@ -19,7 +19,7 @@ public class HighScoreTable : MonoBehaviour
 
         entryTemplate.gameObject.SetActive(false);
 
-        //AddHighscoreEntry(100);
+        AddHighscoreEntry(100);
 
         highscoreEntryList = new List<HighscoreEntry>()
         {
